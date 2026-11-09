@@ -1,0 +1,63 @@
+# On every push to main: compile the CV, build the homepage from the .bib
+# files, and publish both to GitHub Pages.
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  cv:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile CV (multibbl needs one bibtex run per bibliography)
+        working-directory: cv
+        run: |
+          pdflatex -interaction=nonstopmode cv.tex
+          bibtex pubs
+          bibtex prep
+          pdflatex -interaction=nonstopmode cv.tex
+          pdflatex -interaction=nonstopmode cv.tex
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cv
+          path: cv/cv.pdf
+
+  site:
+    needs: cv
+    if: always()
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        continue-on-error: true   # falls back to the committed cv/cv.pdf
+        with:
+          name: cv
+          path: cv
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pybtex
+      - run: python build.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

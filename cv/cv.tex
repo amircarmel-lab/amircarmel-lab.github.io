@@ -1,0 +1,184 @@
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+\usepackage{standalone}
+\moderncvstyle{classic} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage[scale=0.85]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+%\usepackage[utf8]{inputenc}
+
+%\usepackage{booktabs}
+\usepackage{fontawesome}
+\usepackage{marvosym} % For cool symbols.
+%\usepackage{hyperref}
+
+
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Amir} % Your first name
+\familyname{Carmel} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+% \title{Curriculum Vitae}
+\address{10 Ze'ev Vidar}{Rehovot, Israel}
+\mobile{(054) 727 4229}
+\email{amir.carmel@weizmann.ac.il} 
+
+%----------------------------------------------------------------------------------------
+
+\newcommand{\cvdoublecolumn}[2]{%
+  \cvitem[.75em]{}{%
+    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#1\end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{\listdoubleitemcolumnwidth}#2\end{minipage}%
+    }%
+}
+
+
+
+\usepackage{multibbl}
+\newcommand\Colorhref[3][orange]{\href{#2}{\small\color{#1}#3}}
+
+
+\begin{document}
+
+\begin{centering}
+\textbf{Amir Carmel, Ph.D.}\\
+\hspace{3cm} mobile: (+972 547274229) \hspace{1cm} email: amir.carmel@weizmann.ac.il
+\end{centering}
+
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH SUMMARY
+%----------------------------------------------------------------------------------------
+
+\section{Research Summary}
+\cvitem{}{My research is in algorithms for massive data: coresets and data
+summarization, sublinear and streaming algorithms, and metric embeddings, with a
+focus on clustering. At the Weizmann Institute, together with Robert Krauthgamer,
+I introduced \emph{stable coresets}, a guarantee between weak and strong coresets,
+and showed that plain uniform sampling achieves it with size independent of the
+number of points. This yields new coresets for $\ell_1$ and related metrics, with
+applications to fair clustering and $k$-median approximation (ICLR 2026), and
+optimal stable coresets for the geometric median (APPROX 2026). Related work
+studies coresets for 1-center in $\ell_1$ metrics (ITCS 2025, TALG 2026) and coresets for
+clustering from noisy comparisons with few distance queries (NeurIPS 2026). At
+Penn State I worked on streaming algorithms for fitting tree metrics and
+ultrametrics (ICALP 2025) and on weighted rank aggregation (ICALP 2026). My PhD
+was in combinatorial pattern matching and computational biology.}
+
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\cventry{2025--present}{Postdoctoral Researcher}{Weizmann Institute of Science}{Rehovot, Israel}{Host: Robert Krauthgamer}{}
+
+\cventry{2024--2025}{Postdoctoral Researcher}{Pennsylvania State University}{Pennsylvania, United States}{Host: Debarati Das}{}
+
+\cventry{2024}{Postdoctoral Researcher}{Weizmann Institute of Science}{Rehovot, Israel}{Host: Robert Krauthgamer}{}
+
+\cventry{2021--2023}{Senior Data Scientist}{Pagaya}{}{} {
+\begin{itemize}
+  \item Participated in researching and improving the core business model of
+Pagaya in the auto loans industry.
+  \item Studied and implemented a novel survival model for discrete time \&
+competing risks, and analyzed its benefits on mortgage market.
+\end{itemize}
+}
+
+\cventry{2019--2021}{Algorithm Developer \& System Engineer}{Israeli
+Navy}{IDF}{} {
+Designed and implemented new sophisticated algorithms
+based on big data as a hands-on team leader.
+}
+
+\cventry{2017--2019}{Senior Software Engineer}{Israeli Navy}{IDF}{}
+{
+Brought a prototype to production level, while maintaining the current
+Navy's C4I system. Designed and incorporated the new system algorithmic
+pipelines.
+}
+
+\cventry{2015--2017}{Software Engineer}{Israeli Navy}{IDF}{}
+{
+Took a part in a small R\&D team that designed and implemented a highly
+distributed C4I system.
+}
+
+\cventry{2013--2018}{Teaching Assistant \& Private tutor}{Ben Gurion
+University \& Technion}{}{}{Courses: Combinatorial Algorithms, Algorithm 2,
+Design of Algorithms, and Algebra courses.}
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+\cventry{2017--2021}{Master of Science}{Technion}{Pure
+Mathematics}{\textit{Avg.
+-- 91.0}}{}  % - Israel Institute of Technology
+\cventry{2015--2019}{Doctor of Philosophy}{Ben
+Gurion University}{Computer Science}{}{}
+\cventry{2013--2014}{Master of Science}{Ben Gurion
+University}{Computer Science}{\textit{Avg.
+-- 98.48}}{}
+\cventry{2011--2013}{Bachelor of Science}{Ben Gurion University}{Math \& Computer
+ Science}{\textit{Avg. -- 89.27}}{}
+ 
+
+\section{Ph.D.\ \& M.Sc.\ Experience}
+
+\cventry{2013 -- 2018}{M.Sc \& Ph.D at Ben Gurion University of the Negev}{title: \textit{"Combinatorial Algorithms with Applications to Bioinformatics"}}{Utilizing string algorithms and graph theory to design faster and more space-efficient algorithms in the domain of comparative genomics}{}{}
+\cvitem{Advisors :}{Prof. Michal Ziv-Ukelson and Prof. Dekel Tsur, \textit{Computer Science Department}}
+
+\cventry{2019 -- 2021}{M.Sc at Technion – Israel Institute of Technology}{title: \textit{"On the odd area of discs and arcs"}}{Studied a well known open problem that seeks to determine the minimum possible area of all the points in the plane that belong to an odd number of unit discs}{}{}
+\cvitem{Advisor :}{Prof. Rom Pinchasi, \textit{Faculty of Mathematics}}
+
+\cventry{2014}{Summer Internship at Moscow Institute of Physics and Technology}{title: "Partial Fragment Chaining"}{Studied the problem of chaining fragments in multiple sequence alignment, allowing cases where fragments may not appear in all genome sequences}{}{}
+\cvitem{Advisor :}{Prof. Mikhail A. Roytberg (R.I.P), \textit{Lab of Applied Mathematics}}
+
+
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Awards \& Fellowships}
+\cvitem{2025}{The Sir Charles Clore Postdoctoral Prize, Weizmann Institute of Science}
+\cvitem{2018}{Research Excellence Award, Department of Computer Science, Ben-Gurion University, for the paper ``On Almost Monge All Scores Matrices'' (\textit{Algorithmica})}
+\cvitem{2015}{Research Excellence Award, Department of Computer Science, Ben-Gurion University, for the paper ``The Worst Case Complexity of Maximum Parsimony'' (\textit{Journal of Computational Biology})}
+
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATION SECTION (separate page)
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+\section{Peer-reviewed Publications}
+
+\newbibliography{pubs}
+\bibliographystyle{pubs}{plainyrrev}
+\nocite{pubs}{*}
+\bibliography{pubs}{../bib/journal,../bib/conference}{}
+
+\section{Preprints}
+
+\newbibliography{prep}
+\bibliographystyle{prep}{plainyrrev}
+\nocite{prep}{*}
+\bibliography{prep}{../bib/preprints}{}
+
+
+\end{document}
