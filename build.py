@@ -153,11 +153,18 @@ def grouped(items):
             groups[gid] = []
             order.append(gid)
         groups[gid].append(e)
-    # newest first; within a year keep the order of the .bib files
+    # Newest first. An entry can override this with
+    #   sortyear = {2026}  -> placed with that year's papers instead of its own
+    #   order    = {3}     -> position among papers of the same (sort)year
+    # Entries without these fields keep their year and the .bib file order.
     idx = {g: i for i, g in enumerate(order)}
-    return sorted(groups.values(),
-                  key=lambda g: (-max(int(e.get("year", 0)) for e in g),
-                                 idx[g[0].get("paperid") or g[0]["key"]]))
+
+    def key(g):
+        year = max(int(e.get("sortyear") or e.get("year", 0)) for e in g)
+        pos = min(int(e.get("order", 1000)) for e in g)
+        return (-year, pos, idx[g[0].get("paperid") or g[0]["key"]])
+
+    return sorted(groups.values(), key=key)
 
 
 def main():

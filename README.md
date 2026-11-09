@@ -17,7 +17,13 @@ in `bib/`. Edit those, push, and GitHub rebuilds the CV PDF and the site.
   item with both venues. The CV still lists them separately.
 
 Fields only the website reads (BibTeX ignores them): `arxiv`, `venue`,
-`paperid`, `pdf`.
+`paperid`, `pdf`, `order`, `sortyear`.
+
+Ordering: the list is newest year first. Within a year, entries with
+`order = {n}` come in increasing n. `sortyear = {2026}` places an entry with
+that year's papers instead of its own (used to keep the ITCS/ICALP 2025
+papers in the top block). New papers without `order` go after the ordered
+ones of their year; give them an `order` to place them exactly.
 
 ## Other edits
 
